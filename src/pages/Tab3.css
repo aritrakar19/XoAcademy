@@ -1,0 +1,43 @@
+.container {
+  padding: 20px;
+}
+
+.container ion-card {
+  margin-bottom: 20px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile-info h2 {
+  margin: 0 0 4px 0;
+  font-size: 1.2em;
+}
+
+.profile-info p {
+  margin: 2px 0;
+  color: var(--ion-color-medium);
+  font-size: 0.9em;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  text-align: center;
+}
+
+.stat-item h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.5em;
+  color: var(--ion-color-primary);
+}
+
+.stat-item p {
+  margin: 0;
+  font-size: 0.8em;
+  color: var(--ion-color-medium);
+}
