@@ -1,0 +1,53 @@
+/* Global styles for the app with custom tab bar */
+
+/* Add bottom padding to all pages to account for wave tab bar */
+ion-content {
+  --padding-bottom: 120px !important;
+}
+
+/* Ensure the custom tab bar doesn't interfere with page content */
+ion-page {
+  padding-bottom: 0;
+}
+
+/* Smooth transitions for page changes */
+ion-router-outlet {
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar styling */
+ion-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+ion-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+ion-content::-webkit-scrollbar-thumb {
+  background: rgba(253, 199, 93, 0.3);
+  border-radius: 2px;
+}
+
+ion-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(253, 199, 93, 0.5);
+}
+
+/* Ensure proper spacing on mobile devices */
+@media (max-width: 768px) {
+  ion-content {
+    --padding-bottom: 110px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  ion-content {
+    --padding-bottom: 100px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  ion-content {
+    --padding-bottom: 95px !important;
+  }
+}

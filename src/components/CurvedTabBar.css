@@ -1,0 +1,259 @@
+.curved-tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.tab-bar-container {
+  pointer-events: all;
+  max-width: 420px;
+  width: 100%;
+  position: relative;
+}
+
+.tab-bar-background {
+  background: linear-gradient(135deg, #FDC75D 0%, #FDC75D 100%);
+  border-radius: 0 0 30px 30px;
+  padding: 20px 16px 12px 16px;
+  box-shadow:
+    0 -8px 24px rgba(253, 199, 93, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sea Wave Design */
+.tab-bar-background::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(135deg, #FDC75D 0%, #FDC75D 100%);
+  border-radius: 50% 50% 0 0;
+  transform: scaleY(0.5);
+}
+
+.tab-bar-background::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -10%;
+  right: -10%;
+  height: 30px;
+  background: linear-gradient(135deg, #FDC75D 0%, #FDC75D 100%);
+  border-radius: 50%;
+  transform: scaleY(0.3);
+  animation: wave 3s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: scaleY(0.3) translateX(0);
+  }
+  50% {
+    transform: scaleY(0.4) translateX(5px);
+  }
+}
+
+.tab-button {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.tab-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tab-button.active {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.tab-icon-container {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 2px;
+}
+
+.tab-icon {
+  font-size: 26px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.tab-icon.active {
+  color: #FFF;
+  transform: scale(1.15);
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
+}
+
+.tab-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.tab-label.active {
+  color: #FFF;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.active-indicator {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #FFF;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(-50%) scale(1.4);
+  }
+}
+
+/* Additional wave effects */
+.tab-bar-background .wave-overlay {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(135deg, #FDC75D 0%, #FDC75D 100%);
+  border-radius: 50%;
+  transform: scaleY(0.2);
+  animation: wave2 4s ease-in-out infinite;
+}
+
+@keyframes wave2 {
+  0%, 100% {
+    transform: scaleY(0.2) translateX(0);
+  }
+  50% {
+    transform: scaleY(0.3) translateX(-3px);
+  }
+}
+
+/* Ripple effect */
+.tab-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.tab-button:active::after {
+  width: 100px;
+  height: 100px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .tab-bar-background {
+    padding: 18px 12px 10px 12px;
+    border-radius: 0 0 25px 25px;
+  }
+  
+  .tab-button {
+    min-width: 60px;
+    padding: 10px 12px;
+  }
+  
+  .tab-icon {
+    font-size: 22px;
+  }
+  
+  .tab-label {
+    font-size: 10px;
+  }
+  
+  .tab-bar-background::before {
+    top: -18px;
+    height: 36px;
+  }
+  
+  .tab-bar-background::after {
+    top: -12px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .tab-bar-background {
+    padding: 16px 10px 8px 10px;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .tab-button {
+    min-width: 50px;
+    padding: 8px 10px;
+  }
+  
+  .tab-icon {
+    font-size: 20px;
+  }
+  
+  .tab-label {
+    font-size: 9px;
+  }
+  
+  .tab-bar-background::before {
+    top: -16px;
+    height: 32px;
+  }
+  
+  .tab-bar-background::after {
+    top: -10px;
+    height: 20px;
+  }
+}

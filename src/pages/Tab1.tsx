@@ -19,23 +19,11 @@ const Tab1: React.FC = () => {
         <div className="container">
           <IonCard>
             <IonCardHeader>
-              <IonCardTitle>Welcome to XoAcademy!</IonCardTitle>
+              <IonCardTitle>Hello World!</IonCardTitle>
             </IonCardHeader>
             <IonCardContent>
-              <p>🎉 Hello World!</p>
+              <p>🎉 Welcome to XoAcademy!</p>
              
-            </IonCardContent>
-          </IonCard>
-
-          <IonCard>
-            <IonCardHeader>
-              <IonCardTitle>Get Started</IonCardTitle>
-            </IonCardHeader>
-            <IonCardContent>
-              <p>Your app is ready to go! Start building amazing mobile experiences.</p>
-              <IonButton expand="block" fill="solid">
-                Start Learning
-              </IonButton>
             </IonCardContent>
           </IonCard>
         </div>
